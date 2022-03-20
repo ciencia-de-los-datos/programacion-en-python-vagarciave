@@ -45,7 +45,7 @@ def pregunta_02():
     data = getData()
     letterList = sorted(set([i for j in range(0, len(data)) for i in data[j][0]]))
     totalList = [sum(fila[0] == letter for fila in data) for letter in letterList]
-    return list(zip(lettersList, totalList ))
+    return list(zip(letterList, totalList ))
 
 
 def pregunta_03():
