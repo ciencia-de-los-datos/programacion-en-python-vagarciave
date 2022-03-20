@@ -312,6 +312,7 @@ def pregunta_12():
 
     """
     data = getData()
+    dicts = [data[i][4].split(',') for i in range(0,len(data))] 
     letterList = sorted(set([i for j in range(0, len(data)) for i in data[j][0]]))
     resDict = {}
     for letter in letterList:
