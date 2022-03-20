@@ -43,8 +43,8 @@ def pregunta_02():
 
     """
     data = getData()
-    lettersList = sorted(set([i for j in range(0, len(data)) for i in data[j][0]]))
-    totalList = [sum(fila[0] == letter for fila in data) for letter in letters]
+    letterList = sorted(set([i for j in range(0, len(data)) for i in data[j][0]]))
+    totalList = [sum(fila[0] == letter for fila in data) for letter in letterList]
     return list(zip(lettersList, totalList ))
 
 
@@ -240,8 +240,10 @@ def pregunta_09():
     keyColumn = [flatList[i].split(':')[0] for i in range(0,len(flatList))]
     
     keyList = sorted(set(keyColumn))
-    totalList = [sum(row == key for row in keyColumn) for key in keyList]
-    return list(zip(keyList, totalList))
+    restDict = {}
+    for key in keyList:
+        restDict[key] = sum(row == key for row in keyColumn)
+    return restDict
 
 
 def pregunta_10():
@@ -291,10 +293,10 @@ def pregunta_11():
     dicts = [data[i][3].split(',') for i in range(0,len(data))] 
     flatList = [item for elem in dicts for item in elem] 
     letterList = sorted(set(flatList))
-    totalList = [sum(int(fila[1]) for fila in data if letter) for letter in letterList]
-    return list(zip(letterList, totalList ))
-
-
+    resDict = {}
+    for letter in letterList:
+        resDict[letter] = sum(int(fila[1]) for fila in data if letter in fila[3])
+    return resDict
 
 def pregunta_12():
     """
